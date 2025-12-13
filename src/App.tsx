@@ -94,6 +94,50 @@ function App() {
         </div>
       </div>
     </div>
+    
+     {/* Contact Section */}
+     <div className="contact-section">
+       <h2>Get in Touch</h2>
+       <p>Have questions? Contact us directly at <a href="mailto:geeddiga@gmail.com">geeddiga@gmail.com</a></p>
+       <form className="contact-form" onSubmit={(e) => {
+         e.preventDefault();
+         const formData = new FormData(e.currentTarget);
+         const name = formData.get('name');
+         const email = formData.get('email');
+         const message = formData.get('message');
+         
+         // Send email alert to geeddiga@gmail.com
+         fetch('https://api.emailjs.com/api/v1.0/email/send', {
+           method: 'POST',
+           headers: { 'Content-Type': 'application/json' },
+           body: JSON.stringify({
+             service_id: 'service_goolle_shop',
+             template_id: 'template_contact_form',
+             user_id: 'YOUR_EMAILJS_PUBLIC_KEY',
+             template_params: {
+               to_email: 'geeddiga@gmail.com',
+               from_name: name,
+               from_email: email,
+              message: message,
+              reply_to: email
+            }
+          })
+        }).then(() => {
+          alert('Thank you for your message! We\'ll get back to you soon.');
+          e.currentTarget.reset();
+        }).catch(err => {
+          console.error('Error sending message:', err);
+          alert('Error sending message. Please try again.');
+        });
+      }}>
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" rows={5} required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+     </div>
+     </div>
+     </div>
   )
 }
 
