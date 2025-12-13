@@ -60,6 +60,22 @@ function App() {
             Get Prompts Now →
           </a>
         </div>
+                   <div className="product-card">
+             <h3>Hospital Manager App</h3>
+             <p className="product-description">
+               Comprehensive hospital management system with patient records, appointment scheduling, referrals, and billing all in one place.
+             </p>
+             <div className="product-features">
+               <span className="badge">Patient Records</span>
+               <span className="badge">Appointments</span>
+               <span className="badge">Billing System</span>
+               <span className="badge">Referrals</span>
+             </div>
+             <p className="product-price">$299.00</p>
+             <a href="https://hospitalmanager.pythonanywhere.com" target="_blank" rel="noopener noreferrer" className="cta-button">
+               View App →
+             </a>
+           </div>
       </div>
 
         <div className="features">
