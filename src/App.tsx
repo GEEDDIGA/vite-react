@@ -36,8 +36,7 @@ function HomePage() {
         <p className="tagline">Discover Quality Products at Great Prices</p>
         
         <div className="hero-section">
- <p>Explore our curated collection of premium digital products designed to empower your business and creativity.</p>          <p>Get notified when we launch!</p>
-        </div>
+ <p>We're ready! Order the premium digital products you need from us now, and discover what's waiting for you.</p>        </div>
         <form onSubmit={handleSubmit} className="email-form">
           <input
             type="email"
