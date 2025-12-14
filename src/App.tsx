@@ -1,5 +1,8 @@
 import { FormEvent, useState } from 'react'
 import './App.css'
+import PayPalCheckout from './PayPalCheckout'
+import ThankYou from './ThankYou'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 function App() {
   const [email, setEmail] = useState<string>('')
