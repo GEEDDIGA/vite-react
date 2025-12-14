@@ -10,6 +10,13 @@ export const PAYPAL_LINKS = {
   hospitalManager: 'https://www.paypal.com/ncp/links/XGUCFWJ3A47AY'
 };
 
+// Stripe Payment Links
+export const STRIPE_LINKS = {
+  aiPrompts: 'https://buy.stripe.com/test_8x2dR9fqMfIZ9ss9B94ko00',
+  contentGuide: 'https://buy.stripe.com/test_fZu6cH0vS8gxcEE4P4ko01',
+  hospitalManager: 'https://buy.stripe.com/test_eVq9ATceAbsJeMM9B94ko02'
+};
+
 
 // HomePage Component
 function HomePage() {
@@ -62,13 +69,24 @@ function HomePage() {
               <span className="badge">No Subscription</span>
             </div>
             <p className="product-price">$19.99</p>
-            <PayPalCheckout
-              productName="AI Prompt Pack for Business Owners"
-              amount="19.99"
-              itemNumber="ai-prompts-50"
-              description="50 ChatGPT prompts to boost your productivity"
-            />
-          </div>
+<a href={STRIPE_LINKS.aiPrompts} target="_blank" rel="noopener noreferrer" className="stripe-button">
+ Get Prompts Now
+ </a>          </div>
+           <div className="product-card">
+ <h3>AI Content Writing Mastery Guide 2025</h3>
+ <p className="product-description">
+ Complete guide to AI content writing with ChatGPT, including 100+ prompts, templates, and real-world strategies for creators and businesses.
+ </p>
+ <div className="product-features">
+ <span className="badge">100+ Prompts</span>
+ <span className="badge">Step-by-Step Guide</span>
+ <span className="badge">Templates Included</span>
+ </div>
+ <p className="product-price">$119.00</p>
+ <a href={STRIPE_LINKS.contentGuide} target="_blank" rel="noopener noreferrer" className="stripe-button">
+ Get Guide Now
+ </a>
+ </div>
           <div className="product-card">
             <h3>Hospital Manager App</h3>
             <p className="product-description">
@@ -81,13 +99,9 @@ function HomePage() {
               <span className="badge">Referrals</span>
             </div>
             <p className="product-price">$299.00</p>
-            <PayPalCheckout
-              productName="Hospital Manager App"
-              amount="299.00"
-              itemNumber="hospital-manager"
-              description="Comprehensive hospital management system"
-            />
-          </div>
+<a href={STRIPE_LINKS.hospitalManager} target="_blank" rel="noopener noreferrer" className="stripe-button">
+ Buy Now
+ </a>          </div>
         </div>
         <div className="features">
           <div className="feature">
