@@ -36,7 +36,7 @@ function HomePage() {
         <p className="tagline">Discover Quality Products at Great Prices</p>
         
 
-        )}
+        
         {/* Product Showcase Section */}
         <div className="product-showcase">
           <h2>Featured Product</h2>
