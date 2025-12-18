@@ -132,7 +132,6 @@ function HomePage() {
           <button type="submit">Send Message</button>
         </form>
       </div>
-    </div>
   )
 }
 
