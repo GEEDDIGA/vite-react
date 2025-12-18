@@ -5,7 +5,24 @@ import { resolve } from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    {
+      name: 'electron-main-copy',
+      closeBundle() {
+        try {
+          mkdirSync(resolve(__dirname, 'dist/electron'), { recursive: true })
+          copyFileSync(
+            resolve(__dirname, 'main.js'),
+            resolve(__dirname, 'dist/electron/main.js')
+          )
+          console.log('✓ Copied electron/main.js')
+        } catch (err) {
+          console.log('Note: main.js copy skipped')
+        }
+      },
+    },
+  ],
   build: {
     outDir: 'dist',
     rollupOptions: {
@@ -14,17 +31,5 @@ export default defineConfig({
         chunkFileNames: '[name].[hash].js',
       },
     },
-  },
-  closeBundle() {
-    try {
-      mkdirSync(resolve(__dirname, 'dist/electron'), { recursive: true })
-      copyFileSync(
-        resolve(__dirname, 'main.js'),
-        resolve(__dirname, 'dist/electron/main.js')
-      )
-      console.log('✓ Copied electron/main.js')
-    } catch (err) {
-      console.log('Note: main.js copy skipped')
-    }
   },
 })
